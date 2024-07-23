@@ -11,6 +11,13 @@ export default function TabLayout() {
                     tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
                 }}
             />
+            <Tabs.Screen
+                name="pokemon"
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="list" color={color} />,
+                }}
+            />
         </Tabs>
     );
 }
