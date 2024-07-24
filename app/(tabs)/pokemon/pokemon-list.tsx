@@ -4,7 +4,11 @@ import {useQuery} from "@tanstack/react-query";
 import {getPokemon} from "@/utils/api/api";
 
 const PokemonList = () => {
-    const {isLoading, error, data} = useQuery({queryKey: ['pokemon'], queryFn: getPokemon})
+    const {
+        isLoading,
+        error,
+        data
+    } = useQuery({queryKey: ['PokemonList'], queryFn: getPokemon})
 
     if (isLoading) {
         return <View style={styles.container}><Text>Loading...</Text></View>
@@ -17,10 +21,12 @@ const PokemonList = () => {
     return (
         <View style={styles.container}>
             {data?.results.map((pokemon) => (
-                <Pressable key={pokemon.name} onPress={()=>router.push({
-                    pathname: "/detail/[name]",
-                    params: {name: `${pokemon.name}`}
-                })}>
+                <Pressable key={pokemon.name} onPress={
+                    () => router.push({
+                        pathname: "/detail/[name]",
+                        params: {name: `${pokemon.name}`}
+                    })
+                }>
                     <Text>{pokemon.name}</Text>
                 </Pressable>
             ))}
