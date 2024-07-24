@@ -1,6 +1,6 @@
 
 
-export interface PokemonDetail {
+export interface PokemonDetailType {
     abilities: Ability[];
     id: number;
     moves: Move[];

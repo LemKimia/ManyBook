@@ -1,12 +1,12 @@
 import axios from "axios";
 import { Result} from "@/utils/type/results";
-import {PokemonDetail} from "@/utils/type/pokemon";
+import {PokemonDetailType} from "@/utils/type/pokemon";
 
-const url = "https://pokeapi.co/api/v2/pokemon"
+const baseUrl = "https://pokeapi.co/api/v2/pokemon"
 
 export const getPokemon = async () => {
     try {
-        const response = await axios.get(url);
+        const response = await axios.get(baseUrl);
 
         return response.data as Result;
     } catch (error: any) {
@@ -14,11 +14,12 @@ export const getPokemon = async () => {
     }
 };
 
-export const getPokemonDetails = async (name: string) => {
+export const getPokemonDetails = async (name: string | string[] | undefined) => {
+    const urlWithParams = baseUrl + `/${name}`
     try {
-        const response = await axios.get(`url/${name}`);
+        const response = await axios.get(urlWithParams);
 
-        return response.data as PokemonDetail;
+        return response.data as PokemonDetailType;
     } catch (error: any) {
         throw Error(error.response.data.message);
     }
