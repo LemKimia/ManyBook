@@ -2,31 +2,27 @@ import {Text, View, StyleSheet, Pressable} from "react-native";
 import {Link} from 'expo-router'
 
 const Index = () => {
-    const handlePress = () => {
-        alert('Hehe')
-    }
-
     return (
-        <View style={styles.container}>
-            <Text>Hello Good Morning Player</Text>
-            <View>
-                <Text>Fun fact placeholder</Text>
-            </View>
-            <View>
+            <View style={styles.container}>
+                <Text>Hello Good Morning Player</Text>
                 <View>
-                    <Link href={"/pokemon/pokemon-list"} asChild>
+                    <Text>Fun fact placeholder</Text>
+                </View>
+                <View>
+                    <View>
+                        <Link href={"/pokemon/pokemon-list"} asChild>
+                            <Pressable>
+                                <Text>See All</Text>
+                            </Pressable>
+                        </Link>
+                    </View>
+                    <View>
                         <Pressable>
-                            <Text>See All</Text>
+                            <Text>Catch one!</Text>
                         </Pressable>
-                    </Link>
-                </View>
-                <View>
-                    <Pressable onPress={handlePress}>
-                        <Text>Catch one!</Text>
-                    </Pressable>
+                    </View>
                 </View>
             </View>
-        </View>
     );
 }
 
